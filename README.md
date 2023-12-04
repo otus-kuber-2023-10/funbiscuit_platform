@@ -148,3 +148,16 @@ PVC data-minio-0, который связан с PV pvc-dbb83c00-1371-44c1-8017-
 Подключился к поду, создал файл /app/data/data.txt и записал в него строку. После чего удалил под.
 
 Создал еще один под, который использует тот же PVC. Подключился и убедился, что файл /app/data/data.txt на месте.
+
+# ДЗ 5
+Создал манифест для service account bob. Добавил role binding, чтобы выдать роль admin в рамках всего кластера.
+
+Создал манифест с service account dave, без каких-либо ролей.
+
+Создал манифест для создания namespace prometheus. Добавил манифест для создания в данном namespace service account carol.
+
+Добавил манифест для создания кластерной роли pod-reader с правами на get list и watch подов во всем кластере.
+И добавил манифест на rolebinding с выдачей всем service account в namespace prometheus роль pod-reader.
+
+Добавил манифест для создания namespace dev. Добавил манифесты для создания в этом namespace service account jane и ken.
+Добавил манифесты для выдачи ролей в рамках namespace dev: jane - роль admin, ken - роль view.
